@@ -1,25 +1,25 @@
 Part-of-speech tagging ->
 ------------------------------
 The goal of the assignment was to tag the parts of speech to each word in all the sentences in the test data provided. There are 12 parts of speech namely 'adj', 'adv', 'adp', 'conj', 'det', 'noun', 'num', 'pron', 'prt', 'verb', 'x', '.'
-The three approaches used for parts of speech tagging are :
-1.	Simple
-2.	Hidden Markov model / Viterbi algorithm
-3.	Complex Markov chains Monte carlo method/ Gibbs Sampling
+The three approaches used for parts of speech tagging are:
+1.Simple
+2.Hidden Markov model / Viterbi algorithm
+3.Complex Markov chains Monte carlo method/ Gibbs Sampling
 The first step towards assigning the parts of speech to the words in a sentence is to train the model from the data provided.
 
 ##Training:
  We process the given training data and learn the probabilities of the required information that we would be needing to implement the algorithms
 We have taken different dictionaries to maintain the count of the following
-1)	the occurrence of each word 
-2)	the occurrence of 12 different parts of speech 
-3)	the combination of word and the respective parts of speech 
-4)	the combination of speech n-1 to speech n transitions 
-5)	a particular parts of speech starting a sentence
- the probabilities that we calculated are :
-1)	Emission probability : The probability of word given speech P(Word/Speech)
-2)	Transition probability :The probability that a particular speech follows a given speech P(S2/S1)
-3)	The probability that a speech comes as the first speech in the sentence 
-4)	State probability :The probability of a particular parts of speech P(S)
+1)the occurrence of each word 
+2)the occurrence of 12 different parts of speech 
+3)the combination of word and the respective parts of speech 
+4)the combination of speech n-1 to speech n transitions 
+5)a particular parts of speech starting a sentence
+the probabilities that we calculated are :
+1)Emission probability : The probability of word given speech P(Word/Speech)
+2)Transition probability :The probability that a particular speech follows a given speech P(S2/S1)
+3)The probability that a speech comes as the first speech in the sentence 
+4)State probability :The probability of a particular parts of speech P(S)
 
 ##Algorithm Description:
 * For the Simple Algorithm :
