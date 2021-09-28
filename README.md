@@ -10,10 +10,10 @@ The first step towards assigning the parts of speech to the words in a sentence 
 ##Training:
  We process the given training data and learn the probabilities of the required information that we would be needing to implement the algorithms
 We have taken different dictionaries to maintain the count of the following
-1)the occurrence of each word 
-2)the occurrence of 12 different parts of speech 
-3)the combination of word and the respective parts of speech 
-4)the combination of speech n-1 to speech n transitions 
+1)The occurrence of each word 
+2)The occurrence of 12 different parts of speech 
+3)The combination of word and the respective parts of speech 
+4)The combination of speech n-1 to speech n transitions 
 5)a particular parts of speech starting a sentence
 the probabilities that we calculated are :
 1)Emission probability : The probability of word given speech P(Word/Speech)
@@ -22,7 +22,7 @@ the probabilities that we calculated are :
 4)State probability :The probability of a particular parts of speech P(S)
 
 ##Algorithm Description:
-* For the Simple Algorithm :
+* For the Simple Algorithm:
 In this approach the parts of speech is considered to be independent of one another 
 The formula for calculating the probability would be : 
 P(S|W) = max. P(W|S)*P(S)/P(W)
@@ -31,7 +31,7 @@ First randomly we assign the parts of speech to the first word as Noun.
 For each word in the sentence, we check for each speech considering all the 12 parts of speech, considering each word to be independent. We calculate the probability of the word given speech for all the different speeches. From the training the data, we have the probability of word given speech which we utilize here. 
 Once selected a word, we take the probability for each speech given this word and multiply it with the probability of the speech. We consider the maximum of the probabilities calculated for each word given speech and take the speech which has the highest probability and append it to the out list.
 
-* Viterbi algorithm :
+* Viterbi algorithm:
 The Viterbi algorithm is a dynamic programming algorithm for obtaining the maximum posteriori probability estimate of the most likely sequence of hidden states—called the Viterbi path—that results in a sequence of observed events. 
 To find the best tag sequence for a given sentence (or a word sequence), we need to compare all tag sequences. we can only observe the words and we need to determine the Part of speech of that word. Here the words are observed variables and hidden variables are the parts of speeches.
 The formula for calculating the probability of the most probable path ending in state k with observation I :
@@ -42,7 +42,7 @@ For the second word onwards we use Emission probability, Transition probability 
 We conitnue doing this procedure for all words, and keep filling the matrix used by us. We also maintain a variable v_path to store the indexes of maximum probabilities  for each word in the table.
 We get the hmm_output by getting the respective pos from the sequence stored.
 
-* Gibbs Sampling : 
+* Gibbs Sampling: 
 We assign a random set of parts of speech to each word or the same parts of speech and then choose each word and assign it all the 12 parts of speech. For each word we compute the posterior given by the following formula:
 	               P(Si|S1…Si-1,Si+1…Sn, W1…Wn) or P(Si|S-Si, W)  =
  marginalised over Si 
