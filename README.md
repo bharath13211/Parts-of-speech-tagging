@@ -7,7 +7,7 @@ The three approaches used for parts of speech tagging are:
 3.Complex Markov chains Monte carlo method/ Gibbs Sampling
 The first step towards assigning the parts of speech to the words in a sentence is to train the model from the data provided.
 
-##Training:
+## Training:
  We process the given training data and learn the probabilities of the required information that we would be needing to implement the algorithms
 We have taken different dictionaries to maintain the count of the following
 1)The occurrence of each word 
@@ -21,7 +21,7 @@ the probabilities that we calculated are :
 3)The probability that a speech comes as the first speech in the sentence 
 4)State probability :The probability of a particular parts of speech P(S)
 
-##Algorithm Description:
+## Algorithm Description:
 * For the Simple Algorithm:
 In this approach the parts of speech is considered to be independent of one another 
 The formula for calculating the probability would be : 
@@ -55,7 +55,7 @@ We take roughly some 1000 samples and in each sample We randomly assign each par
 The first few samples are discarded and the from the rest the tag that occur the most for a word is assigned as the final tag. We are using a value of 500 after which the count dictionary is updated for each parts of speech
 After 1000 samples for each sentence the speech that as the maximum count is assigned to a particular word.
 
-##Assumptions:
+## Assumptions:
 1. Fixing the probabilities of unknown words, unknown transitions and unknown emissions to a very small value:
 we faced challenges for a word that is not present in the training data. For such words we set their probability to a very small value such as 0.0000001. We have used those values for calculating emission probabilities and transition probabilities in  Viterbi and MVMC.
 2. Fixing the starting word to be the noun in simplified model
@@ -63,6 +63,6 @@ We randomly fixed the first parts of speech tag to be a noun in a sentence such 
 3.Fixing some random parts of speech in a list to start with gibbs sampling:
 The list of parts of speech with the same length of the sentence is randomly assigned to be all adverbs. After getting the value from the random function and comparing with the normalized probabilities the list is updated accordingly.
 
-##Challenges faced:
+## Challenges faced:
 1.We faced challenges formulating the expressions for calculating the probabilities for gibbs sampling
 2.We faced difficulty with increasing the accuracy and tried changing the number of samples for MCMC and and also changing the random pos tags assigned to the words.
